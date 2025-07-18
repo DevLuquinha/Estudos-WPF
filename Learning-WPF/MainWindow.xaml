@@ -11,16 +11,11 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="inputTextBox" VerticalAlignment="Center"
-                 Width="250" Height="40"
-                 FontSize="16" Text="{Binding BoundText, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
-        <Button Grid.Row="1" Name="setButton" Content="Set"
-                Width="100" Height="40"
-                Click="setButton_Click"/>
-        <TextBlock Grid.Row="2" x:Name="resultTextBlock" 
+        <Button Name="fireButton" Content="Fire"
+                Width="100" Height="40" Click="fireButton_Click"/>
+        <TextBlock Grid.Row="1" x:Name="infoTextBlock" 
                    VerticalAlignment="Center" HorizontalAlignment="Center"
-                   FontSize="16" Text="{Binding BoundText}"/>
+                   FontSize="16"/>
     </Grid>
 </Window>

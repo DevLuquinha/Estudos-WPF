@@ -1,39 +1,34 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using Microsoft.Win32;
 using System.Windows;
 
 namespace Learning_WPF
 {
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            DataContext = this;
             InitializeComponent();
         }
 
-        private string boundText;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public string BoundText
+        private void fireButton_Click(object sender, RoutedEventArgs e)
         {
-            get { return boundText; }
-            set 
-            { 
-                boundText = value;
-                OnPropertyChanged();
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "C# Source Files | *.cs";
+            fileDialog.Title = "Please pick a CS Source File";
+
+            bool? success = fileDialog.ShowDialog();
+            if(success == true)
+            {
+                string path = fileDialog.FileName;
+                string fileName = fileDialog.SafeFileName;
+
+                infoTextBlock.Text = fileName;
             }
-        }
+            else
+            {
+                // Exit the dialog
+            }
 
-        private void setButton_Click(object sender, RoutedEventArgs e)
-        {
-            BoundText = "Set from code";
-        }
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
