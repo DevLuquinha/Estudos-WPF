@@ -5,15 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learning_WPF"
         xmlns:userControls="clr-namespace:Learning_WPF.View.UserControls"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition />
-            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <userControls:MenuBar/>
+        <userControls:ClearableTextBox Grid.Row="1" Width="250" Height="40" Placeholder="First Name"/>
+        <userControls:ClearableTextBox Grid.Row="2" Width="250" Height="40" Placeholder="Last Name"/>
+        <userControls:ClearableTextBox Grid.Row="3" Width="250" Height="40" Placeholder="Email"/>
+        <userControls:ClearableTextBox Grid.Row="4" Width="250" Height="40" Placeholder="Phone"/>
     </Grid>
 </Window>
