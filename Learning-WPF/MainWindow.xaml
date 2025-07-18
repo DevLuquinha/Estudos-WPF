@@ -4,23 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learning_WPF"
-        xmlns:userControls="clr-namespace:Learning_WPF.View.UserControls"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="300">
+        Title="MainWindow" Height="250" Width="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <userControls:ClearableTextBox Grid.Row="1" Width="250" Height="40" Placeholder="First Name"/>
-        <userControls:ClearableTextBox Grid.Row="2" Width="250" Height="40" Placeholder="Last Name"/>
-        <userControls:ClearableTextBox Grid.Row="3" Width="250" Height="40" Placeholder="Email"/>
-        <userControls:ClearableTextBox Grid.Row="4" Width="250" Height="40" Placeholder="Phone"/>
+        <TextBox x:Name="inputTextBox" VerticalAlignment="Center"
+                 Width="250" Height="40"
+                 FontSize="16" Text="{Binding BoundText, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
+        <Button Grid.Row="1" Name="setButton" Content="Set"
+                Width="100" Height="40"
+                Click="setButton_Click"/>
+        <TextBlock Grid.Row="2" x:Name="resultTextBlock" 
+                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="16" Text="{Binding BoundText}"/>
     </Grid>
 </Window>
