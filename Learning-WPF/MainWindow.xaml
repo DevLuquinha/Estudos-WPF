@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Hello World" FontSize="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="statusTextBlock" FontSize="50"/>
+        <Button 
+            x:Name="toggleRunButton" 
+            Width="100" Height="50" 
+            VerticalAlignment="Center" HorizontalAlignment="Center" 
+            Content="Run" FontSize="20" Click="toggleRunButton_Click"/>
     </Grid>
 </Window>
