@@ -10,5 +10,10 @@ namespace Learning_WPF
         {
             InitializeComponent();
         }
+
+        private void detailsButton_Click(object sender, RoutedEventArgs e)
+        {
+            detailsExpander.IsExpanded = !detailsExpander.IsExpanded;
+        }
     }
 }
