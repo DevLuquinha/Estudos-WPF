@@ -6,25 +6,20 @@
         xmlns:local="clr-namespace:Learning_WPF"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="MainWindow" Height="350" Width="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-
-        <StackPanel Background="LightBlue">
-            <TextBlock Text="Name" FontSize="16" />
-            <Expander Header="More details">
-                <TextBlock Text="Description" FontSize="16" />
-            </Expander>
-            <Button Name="detailsButton" Width="100" Height="25" 
-                    Content="Details" Click="detailsButton_Click"
-                    HorizontalAlignment="Left"/>
-        </StackPanel>
-        <Expander Name="detailsExpander" Background="DarkGray" BorderThickness="0" 
-                  Grid.Column="1" ExpandDirection="Left">
-            <Rectangle Grid.Column="1" Fill="DarkGray" Width="125"/>
-        </Expander>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBox Height="30" Width="200" Margin="10"/>
+                <TextBox Height="30" Width="200" Margin="10"/>
+                <TextBox Height="30" Width="200" Margin="10"/>
+                <TextBox Height="30" Width="200" Margin="10"/>
+                <TextBox Height="30" Width="200" Margin="10"/>
+                <TextBox Height="30" Width="200" Margin="10"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
+
+   
