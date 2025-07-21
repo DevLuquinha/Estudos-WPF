@@ -6,16 +6,31 @@
         xmlns:local="clr-namespace:Learning_WPF"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300">
+        Title="MainWindow" Height="400" Width="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="75"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Name="fireButton" Content="Fire"
-                Width="100" Height="40" Click="fireButton_Click"/>
-        <TextBlock Grid.Row="1" x:Name="infoTextBlock" 
-                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                   FontSize="16"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Name="entryTextBox" Height="35" FontSize="16"/>
+
+        <Button Grid.Column="1" Name="addButton" Width="50" 
+                Content="Add" Click="addButton_Click" 
+                HorizontalAlignment="Left"/>
+
+        <Button Grid.Column="1" Name="deleteButton" Width="50" 
+                Content="Del" Click="deleteButton_Click" 
+                HorizontalAlignment="Left" Margin="60,0,0,0"/>
+
+        <Button Grid.Column="1" Name="clearButton" Width="50" 
+                Content="Clr" Click="clearButton_Click" 
+                HorizontalAlignment="Left" Margin="120,0,0,0"/>
+
+        <ListView Name="entriesListView" Grid.Row="1" Grid.ColumnSpan="2" SelectionMode="Extended"/>
     </Grid>
 </Window>
