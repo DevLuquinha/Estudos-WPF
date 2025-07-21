@@ -3,22 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Learning_WPF"
-        
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="300">
+        xmlns:local="clr-namespace:Learning_WPF" Background="#333333"
+        mc:Ignorable="d" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown"    
+        Title="MainWindow" Height="300" Width="300">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" />
+    </WindowChrome.WindowChrome>
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Auto">
-            <StackPanel>
-                <TextBox Height="30" Width="200" Margin="10"/>
-                <TextBox Height="30" Width="200" Margin="10"/>
-                <TextBox Height="30" Width="200" Margin="10"/>
-                <TextBox Height="30" Width="200" Margin="10"/>
-                <TextBox Height="30" Width="200" Margin="10"/>
-                <TextBox Height="30" Width="200" Margin="10"/>
-            </StackPanel>
-        </ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="minimizeButton" Content="-" Width="40" Height="40"
+                    BorderBrush="Transparent" Background="Transparent"
+                    Click="minimizeButton_Click" Foreground="White"/>
+
+            <Button Name="maximizeButton" Content="□" Width="40" Height="40"
+                    BorderBrush="Transparent" Background="Transparent"
+                    Click="maximizeButton_Click" Foreground="White"/>
+
+            <Button Name="closeButton" Content="X" Width="40" Height="40"
+                    BorderBrush="Transparent" Background="Transparent"
+                    Click="closeButton_Click" Foreground="White"/>
+        </StackPanel>
     </Grid>
 </Window>
 
