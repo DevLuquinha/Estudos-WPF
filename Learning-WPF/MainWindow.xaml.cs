@@ -1,5 +1,4 @@
-﻿using Learning_WPF.ViewModel;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Learning_WPF
 {
@@ -8,8 +7,6 @@ namespace Learning_WPF
         public MainWindow()
         {
             InitializeComponent();
-            MainWindowViewModel viewModel = new MainWindowViewModel();
-            DataContext = viewModel;
         }        
     }
 }
