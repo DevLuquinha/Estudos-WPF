@@ -4,28 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learning_WPF"
-        mc:Ignorable="d"    
-        Title="MainWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+        mc:Ignorable="d" Background="#333333"    
+        Title="MainWindow" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#222222"/>
+            <Setter Property="Foreground" Value="#EEEEEE"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#0052C1"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="Green"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="60"/>
-        </Grid.RowDefinitions>
-
-        <StackPanel VerticalAlignment="Center">
-            <StackPanel.Resources>
-                
-            </StackPanel.Resources>
-            <TextBox />
-            <TextBox />
-            <TextBox />
-            <Button Content="Normal" Margin="0,5,0,0"/>
-            <Button Content="Normal" Margin="0,5,0,0"/>
-        </StackPanel>
-
-        <Grid Grid.Row="1">
-            <Button Style="{StaticResource ConfirmationButton}"/>
-        </Grid>
+        <ScrollViewer>
+            <Rectangle Height="1000"/>
+        </ScrollViewer>
+        <Button Width="100" Height="50" Content="I'm a button" />
     </Grid>
 </Window>
 
