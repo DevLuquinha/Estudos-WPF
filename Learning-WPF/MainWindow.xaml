@@ -6,15 +6,26 @@
         xmlns:local="clr-namespace:Learning_WPF"
         mc:Ignorable="d"    
         Title="MainWindow" Height="300" Width="300" WindowStartupLocation="CenterScreen">
-
     <Grid>
-        <StackPanel>
-            <Button Name="normalButton" Width="100" Height="40" Content="Normal" Margin="5"
-                    Click="normalButton_Click"/>
-            <Button Name="modalButton" Width="100" Height="40" Content="Modal" Margin="5"
-                    Click="modalButton_Click"/>
-            <TextBox Name="inputTextBox" Width="200" Height="40" FontSize="20"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel.Resources>
+                
+            </StackPanel.Resources>
+            <TextBox />
+            <TextBox />
+            <TextBox />
+            <Button Content="Normal" Margin="0,5,0,0"/>
+            <Button Content="Normal" Margin="0,5,0,0"/>
         </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Button Style="{StaticResource ConfirmationButton}"/>
+        </Grid>
     </Grid>
 </Window>
 
