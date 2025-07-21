@@ -10,4 +10,8 @@
     <UseWindowsForms>False</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
+
 </Project>
