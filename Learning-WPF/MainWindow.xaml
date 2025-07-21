@@ -31,6 +31,6 @@
                 Content="Clr" Click="clearButton_Click" 
                 HorizontalAlignment="Left" Margin="120,0,0,0"/>
 
-        <ListView Name="entriesListView" Grid.Row="1" Grid.ColumnSpan="2" SelectionMode="Extended"/>
+        <ListView Name="entriesListView" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Entries}" SelectedItem="{Binding SelectedItem}"/>
     </Grid>
 </Window>

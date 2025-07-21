@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace Learning_WPF
@@ -7,35 +8,34 @@ namespace Learning_WPF
     {
         public MainWindow()
         {
+            DataContext = this;
+            entries = new ObservableCollection<string>();
+
             InitializeComponent();
-            entriesListView.Items.Add("a");
-            entriesListView.Items.Add("b");
-            entriesListView.Items.Add("c");
+        }
+
+        private ObservableCollection<string> entries;
+
+        public ObservableCollection<string> Entries
+        {
+            get { return entries; }
+            set { entries = value; }
         }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            entriesListView.Items.Add(entryTextBox.Text);
-            entryTextBox.Clear();
+            Entries.Add(entryTextBox.Text);
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //int index = entriesListView.SelectedIndex;
-            //object item = entriesListView.SelectedItem;
-            var items = entriesListView.SelectedItems;
-            var result = MessageBox.Show($"Are you sure you want to delete {items.Count} items?", "Sure?", MessageBoxButton.YesNo);
-            if(result == MessageBoxResult.Yes)
-            {
-                var itemList = new ArrayList(items);
-                foreach(var item in itemList)
-                    entriesListView.Items.Remove(item);
-            }
+            string item = (string)entriesListView.SelectedItem;
+            Entries.Remove(item);
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-            entriesListView.Items.Clear();
+            Entries.Clear();
         }
     }
 }
