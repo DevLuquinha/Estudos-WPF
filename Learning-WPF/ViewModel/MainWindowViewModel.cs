@@ -9,21 +9,14 @@ namespace Learning_WPF.ViewModel
     internal class MainWindowViewModel : ViewModelBase
     {
         public ObservableCollection<Item> Items { get; set; }
+
+        public RelayCommand AddCommand => new RelayCommand(execute => AddItem());
+        public RelayCommand DeleteCommand => new RelayCommand(execute => DeleteItem(), canExecute => SelectedItem != null);
+        public RelayCommand SaveCommand => new RelayCommand(execute => SaveItem(), canExecute => CanSave());
         public MainWindowViewModel()
         {
             Items = new ObservableCollection<Item>();
-            Items.Add(new Item
-            {
-                Name = "Product1",
-                SerialNumber = "0001",
-                Quantity = 5
-            });
-            Items.Add(new Item
-            {
-                Name = "Product2",
-                SerialNumber = "0002",
-                Quantity = 6
-            });
+            
         }
 
         private Item _selectedItem;
@@ -35,6 +28,31 @@ namespace Learning_WPF.ViewModel
                 _selectedItem = value;
                 OnPropertyChaged();
             }
+        }
+
+        private void AddItem()
+        {
+            Items.Add(new Item
+            {
+                Name = "NEW ITEM",
+                SerialNumber = "XXXXXX",
+                Quantity = 0
+            });
+        }
+
+        private void DeleteItem()
+        {
+            Items.Remove(SelectedItem);
+        }
+
+        private void SaveItem()
+        {
+            // Save to database or file
+        }
+
+        private bool CanSave()
+        {
+            return true;
         }
     }
 }
