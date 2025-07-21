@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Windows;
+using Learning_WPF.View;
 
 namespace Learning_WPF
 {
@@ -11,26 +10,24 @@ namespace Learning_WPF
             InitializeComponent();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void normalButton_Click(object sender, RoutedEventArgs e)
         {
-            DragMove();
+            NormalWindow normalWindow = new NormalWindow();
+            normalWindow.Show();
         }
 
-        private void minimizeButton_Click(object sender, RoutedEventArgs e)
+        private void modalButton_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
-        }
+            ModalWindow modalWindow = new ModalWindow(this);
+            Opacity = 0.4;
+            
+            modalWindow.ShowDialog();
 
-        private void maximizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            if(WindowState == WindowState.Maximized)
-                WindowState = WindowState.Normal;
-            else WindowState = WindowState.Maximized;
-        }
-
-        private void closeButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            Opacity = 1;
+            if(modalWindow.Success)
+            {
+                inputTextBox.Text = modalWindow.Input;
+            }
         }
     }
 }
