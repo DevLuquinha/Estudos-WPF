@@ -12,25 +12,26 @@
             <RowDefinition Height="75"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <TextBox Name="entryTextBox" Height="35" FontSize="16"/>
-
-        <Button Grid.Column="1" Name="addButton" Width="50" 
-                Content="Add" Click="addButton_Click" 
-                HorizontalAlignment="Left"/>
-
-        <Button Grid.Column="1" Name="deleteButton" Width="50" 
-                Content="Del" Click="deleteButton_Click" 
-                HorizontalAlignment="Left" Margin="60,0,0,0"/>
-
-        <Button Grid.Column="1" Name="clearButton" Width="50" 
-                Content="Clr" Click="clearButton_Click" 
-                HorizontalAlignment="Left" Margin="120,0,0,0"/>
-
-        <ListView Name="entriesListView" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Entries}" SelectedItem="{Binding SelectedItem}"/>
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
+            <Button Height="40" Width="75" Margin="2" Content="A"/>
+            <Button Height="40" Width="75" Margin="2" Content="B"/>
+            <Button Height="40" Width="75" Margin="2" Content="C"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Margin="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Label: "/>
+                <TextBox Width="150"/>
+                <Button Content="GO"/>
+            </StackPanel>
+            
+            <TextBox Width="150" Height="30" Margin="2"/>
+            <ComboBox Width="150" Height="30" Margin="2"/>
+            <TextBox Width="150" Height="30" Margin="2"/>
+            <TextBox Width="150" Height="30" Margin="2"/>
+            <TextBox Width="150" Height="30" Margin="2"/>
+            <TextBox Width="150" Height="30" Margin="2"/>
+        </StackPanel>
     </Grid>
 </Window>
