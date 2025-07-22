@@ -1,4 +1,5 @@
-﻿using Learning_WPF.Models;
+﻿using Learning_WPF.Commands;
+using Learning_WPF.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -14,6 +15,8 @@ namespace Learning_WPF.ViewModels
         public ReservationListingViewModel()
         {
             _reservations = new ObservableCollection<ReservationViewModel>();
+
+            MakeReservationCommand = new NavigateCommand();
 
             _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(1, 2), "SingletonSean", DateTime.Now, DateTime.Now)));
             _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(3, 2), "Joe", DateTime.Now, DateTime.Now)));
