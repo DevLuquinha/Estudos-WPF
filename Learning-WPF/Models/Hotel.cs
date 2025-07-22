@@ -1,6 +1,6 @@
 ﻿namespace Learning_WPF.Models
 {
-    class Hotel
+    public class Hotel
     {
         private readonly ReservationBook _reservationBook;
         

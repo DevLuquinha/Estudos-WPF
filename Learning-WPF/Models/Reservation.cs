@@ -14,7 +14,7 @@
             RoomID = roomID;
             UserName = username;
             StartDate = startTime;
-            EndDate = EndDate;
+            EndDate = endTime;
         }
 
         internal bool Conflicts(Reservation reservation)

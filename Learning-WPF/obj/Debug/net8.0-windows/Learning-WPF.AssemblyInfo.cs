@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Learning-WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40ace78c0b771239f39f04bd359e845a3953f4f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21115798c89ee0f24d97866359dc9254b5f560f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Learning-WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Learning-WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

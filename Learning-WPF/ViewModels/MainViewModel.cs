@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Learning_WPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace Learning_WPF.ViewModels
     {
         public ViewModelBase CurrentViewModel { get; }
 
-        public MainViewModel()
+        public MainViewModel(Hotel hotel)
         {
-            CurrentViewModel = new ReservationListingViewModel();
+            CurrentViewModel = new MakeReservationViewModel(hotel);
         }
     }
 }
