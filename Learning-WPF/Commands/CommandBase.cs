@@ -7,6 +7,7 @@ using System.Windows.Input;
 
 namespace Learning_WPF.Commands
 {
+
     public abstract class CommandBase : ICommand
     {
         public event EventHandler? CanExecuteChanged;

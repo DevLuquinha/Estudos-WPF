@@ -3,6 +3,7 @@ using Learning_WPF.Models;
 using Learning_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,15 @@ namespace Learning_WPF.Commands
         {
             _makeReservationViewModel = makeReservationViewModel;
             _hotel = hotel;
+
+            _makeReservationViewModel.PropertyChanged += OnViewModelPropertyChanged;
+        }
+
+        public override bool CanExecute(object? parameter)
+        {
+            return !string.IsNullOrEmpty(_makeReservationViewModel.Username) && 
+                _makeReservationViewModel.FloorNumber > 0 &&
+                base.CanExecute(parameter);
         }
 
         public override void Execute(object? parameter)
@@ -39,6 +49,15 @@ namespace Learning_WPF.Commands
                 MessageBox.Show("This room is already taken.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+        }
+
+        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == nameof(_makeReservationViewModel.Username) ||
+                e.PropertyName == nameof(_makeReservationViewModel.FloorNumber))
+            {
+                OnCanExecutedChanged();
+            }
         }
     }
 }
