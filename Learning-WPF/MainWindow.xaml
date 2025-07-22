@@ -13,7 +13,7 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="20,10" MaxWidth="600">
-        <views:MakeReservationView/>
+        <views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
 

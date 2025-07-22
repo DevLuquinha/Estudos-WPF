@@ -1,5 +1,6 @@
 ﻿using Learning_WPF.Exceptions;
 using Learning_WPF.Models;
+using Learning_WPF.ViewModels;
 using System.Windows;
 
 namespace Learning_WPF
@@ -11,31 +12,11 @@ namespace Learning_WPF
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            Hotel hotel = new Hotel("SingletonSean Suites");
-
-            try
+            MainWindow = new MainWindow()
             {
-                hotel.MakeReservation(new Reservation(
-                new RoomID(1, 3),
-                "SingletonSean",
-                new DateTime(2000, 1, 1),
-                new DateTime(2000, 1, 2)));
-
-                hotel.MakeReservation(new Reservation(
-                    new RoomID(1, 3),
-                    "SingletonSean",
-                    new DateTime(2000, 1, 1),
-                    new DateTime(2000, 1, 4)));
-            }
-            catch (ReservationConflictException ex)
-            {
-
-                throw;
-            }
-
-            
-
-            IEnumerable<Reservation> reservations = hotel.GetAllReservations();
+                DataContext = new MainViewModel()
+            };
+            MainWindow.Show();
 
             base.OnStartup(e);
         }

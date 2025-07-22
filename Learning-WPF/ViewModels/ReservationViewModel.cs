@@ -1,4 +1,5 @@
 ﻿using Learning_WPF.Models;
+using System.Globalization;
 
 namespace Learning_WPF.ViewModels
 {
@@ -7,9 +8,9 @@ namespace Learning_WPF.ViewModels
         private readonly Reservation _reservation;
 
         public string RoomID => _reservation.RoomID?.ToString();
-        public string UserName => _reservation.UserName;
-        public DateTime StartTime => _reservation.StartTime;
-        public DateTime EndTime => _reservation.EndTime;
+        public string Username => _reservation.UserName;
+        public string StartDate => _reservation.StartDate.ToString("d");
+        public string EndDate => _reservation.EndDate.ToString("d");
 
         public ReservationViewModel(Reservation reservation)
         {

@@ -4,17 +4,17 @@
     {
         public RoomID RoomID { get; }
         public string UserName { get; }
-        public DateTime StartTime { get; }
-        public DateTime EndTime { get; }
+        public DateTime StartDate { get; }
+        public DateTime EndDate { get; }
 
-        public TimeSpan Length => EndTime.Subtract(StartTime);
+        public TimeSpan Length => EndDate.Subtract(StartDate);
         
         public Reservation(RoomID roomID, string username,DateTime startTime, DateTime endTime)
         {
             RoomID = roomID;
             UserName = username;
-            StartTime = startTime;
-            EndTime = EndTime;
+            StartDate = startTime;
+            EndDate = EndDate;
         }
 
         internal bool Conflicts(Reservation reservation)
@@ -24,7 +24,7 @@
                 return false;
             }
 
-            return reservation.StartTime < reservation.EndTime || reservation.EndTime > reservation.StartTime;
+            return reservation.StartDate < reservation.EndDate || reservation.EndDate > reservation.StartDate;
         }
     }
 }
