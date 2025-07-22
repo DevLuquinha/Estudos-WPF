@@ -13,7 +13,7 @@ namespace Learning_WPF.ViewModels
 
         public MainViewModel(Hotel hotel)
         {
-            CurrentViewModel = new MakeReservationViewModel(hotel);
+            CurrentViewModel = new ReservationListingViewModel();
         }
     }
 }

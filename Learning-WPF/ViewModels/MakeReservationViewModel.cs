@@ -72,6 +72,7 @@ namespace Learning_WPF.ViewModels
         public MakeReservationViewModel(Hotel hotel)
         {
 			SubmitCommand = new MakeReservationCommand(this, hotel);
+			CancelCommand = new CancelMakeReservationCommand();
         }
     }
 }
