@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Learning_WPF.ViewModels
 {
     public class MakeReservationViewModel : ViewModelBase
     {
 		private string _username;
-
 		public string Username
 		{
 			get { return _username; }
@@ -21,7 +21,6 @@ namespace Learning_WPF.ViewModels
 		}
 
 		private int _floorNumber;
-
 		public int FloorNumber
 		{
 			get { return _floorNumber; }
@@ -33,7 +32,6 @@ namespace Learning_WPF.ViewModels
 		}
 
 		private int _roomNumber;
-
 		public int RoomNumber
 		{
 			get { return _roomNumber; }
@@ -45,7 +43,6 @@ namespace Learning_WPF.ViewModels
 		}
 
 		private DateTime _startDate;
-
 		public DateTime StartDate
 		{
 			get { return _startDate; }
@@ -57,8 +54,7 @@ namespace Learning_WPF.ViewModels
 		}
 
 		private DateTime _endDate;
-
-		public DateTime EndDate
+        public DateTime EndDate
 		{
 			get { return _endDate; }
 			set 
@@ -67,5 +63,13 @@ namespace Learning_WPF.ViewModels
 				OnPropertyChanged(nameof(EndDate));
 			}
 		}
-	}
+
+		public ICommand SubmitCommand { get; }
+		public ICommand CancelCommand { get; }
+
+        public MakeReservationViewModel()
+        {
+
+        }
+    }
 }
