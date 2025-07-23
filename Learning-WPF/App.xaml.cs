@@ -1,5 +1,6 @@
 ﻿using Learning_WPF.Exceptions;
 using Learning_WPF.Models;
+using Learning_WPF.Services;
 using Learning_WPF.Stores;
 using Learning_WPF.ViewModels;
 using System.Windows;
@@ -34,12 +35,12 @@ namespace Learning_WPF
 
         private MakeReservationViewModel CreateMakeReservationViewModel()
         {
-            return new MakeReservationViewModel(_hotel, _navigationStore, CreateReservationViewModel);
+            return new MakeReservationViewModel(_hotel, new NavigationService(_navigationStore, CreateReservationViewModel));
         }
 
         private ReservationListingViewModel CreateReservationViewModel()
         {
-            return new ReservationListingViewModel(_navigationStore, CreateMakeReservationViewModel);
+            return new ReservationListingViewModel(_hotel, new NavigationService(_navigationStore, CreateMakeReservationViewModel));
         }
     }
 

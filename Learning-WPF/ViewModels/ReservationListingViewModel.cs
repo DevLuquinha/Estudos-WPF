@@ -1,5 +1,6 @@
 ﻿using Learning_WPF.Commands;
 using Learning_WPF.Models;
+using Learning_WPF.Services;
 using Learning_WPF.Stores;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -8,21 +9,31 @@ namespace Learning_WPF.ViewModels
 {
     public class ReservationListingViewModel : ViewModelBase
     {
+        private readonly Hotel _hotel;
         private readonly ObservableCollection<ReservationViewModel> _reservations;
 
         public IEnumerable<ReservationViewModel> Reservations => _reservations;
         public ICommand MakeReservationCommand { get; }
 
-        public ReservationListingViewModel(NavigationStore navigationStore,
-            Func<MakeReservationViewModel> createMakeReservationViewModel)
+        public ReservationListingViewModel(Hotel hotel, NavigationService makeReservationNavigationService)
         {
+            _hotel = hotel;
             _reservations = new ObservableCollection<ReservationViewModel>();
 
-            MakeReservationCommand = new NavigateCommand(navigationStore, createMakeReservationViewModel);
+            MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
 
-            _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(1, 2), "SingletonSean", DateTime.Now, DateTime.Now)));
-            _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(3, 2), "Joe", DateTime.Now, DateTime.Now)));
-            _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(2, 4), "Mary", DateTime.Now, DateTime.Now)));
+            UpdateReservations();
+        }
+
+        private void UpdateReservations()
+        {
+            _reservations.Clear();
+
+            foreach (Reservation reservation in _hotel.GetAllReservations())
+            {
+                ReservationViewModel reservationViewModel = new ReservationViewModel(reservation);
+                _reservations.Add(new ReservationViewModel(reservation));
+            }
         }
     }
 }

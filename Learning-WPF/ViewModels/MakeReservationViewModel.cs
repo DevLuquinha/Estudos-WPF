@@ -1,5 +1,6 @@
 ﻿using Learning_WPF.Commands;
 using Learning_WPF.Models;
+using Learning_WPF.Services;
 using Learning_WPF.Stores;
 using System;
 using System.Collections.Generic;
@@ -70,11 +71,10 @@ namespace Learning_WPF.ViewModels
 		public ICommand SubmitCommand { get; }
 		public ICommand CancelCommand { get; }
 
-        public MakeReservationViewModel(Hotel hotel, NavigationStore navigationStore, 
-			Func<ReservationListingViewModel> createReservationViewModel)
+        public MakeReservationViewModel(Hotel hotel, NavigationService reservationViewNavigationService)
         {
-			SubmitCommand = new MakeReservationCommand(this, hotel);
-			CancelCommand = new NavigateCommand(navigationStore, createReservationViewModel);
+			SubmitCommand = new MakeReservationCommand(this, hotel, reservationViewNavigationService);
+			CancelCommand = new NavigateCommand(reservationViewNavigationService);
         }
     }
 }

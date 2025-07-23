@@ -1,5 +1,6 @@
 ﻿using Learning_WPF.Exceptions;
 using Learning_WPF.Models;
+using Learning_WPF.Services;
 using Learning_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,15 @@ namespace Learning_WPF.Commands
     {
         private readonly MakeReservationViewModel _makeReservationViewModel;
         private readonly Hotel _hotel;
+        private readonly NavigationService _reservationViewNavigationService;
 
-        public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, Hotel hotel)
+        public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, 
+            Hotel hotel,
+            NavigationService reservationViewNavigationService)
         {
             _makeReservationViewModel = makeReservationViewModel;
             _hotel = hotel;
-
+            _reservationViewNavigationService = reservationViewNavigationService;
             _makeReservationViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
@@ -43,6 +47,8 @@ namespace Learning_WPF.Commands
             {
                 _hotel.MakeReservation(reservation);
                 MessageBox.Show("Successfully reserved room.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                _reservationViewNavigationService.Navigate();
             }
             catch(ReservationConflictException ex)
             {
