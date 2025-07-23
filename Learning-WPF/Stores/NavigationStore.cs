@@ -16,7 +16,15 @@ namespace Learning_WPF.Stores
             set
             {
                 _currentViewModel = value;
+                OnCurrentViewModelChanged();
             }
         }
+
+        private void OnCurrentViewModelChanged()
+        {
+            CurrentViewModelChanged?.Invoke();
+        }
+
+        public event Action CurrentViewModelChanged;
     }
 }

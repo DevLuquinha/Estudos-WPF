@@ -21,7 +21,7 @@ namespace Learning_WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentViewModel = new ReservationListingViewModel();
+            _navigationStore.CurrentViewModel = CreateReservationViewModel();
 
             MainWindow = new MainWindow()
             {
@@ -30,6 +30,16 @@ namespace Learning_WPF
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        private MakeReservationViewModel CreateMakeReservationViewModel()
+        {
+            return new MakeReservationViewModel(_hotel, _navigationStore, CreateReservationViewModel);
+        }
+
+        private ReservationListingViewModel CreateReservationViewModel()
+        {
+            return new ReservationListingViewModel(_navigationStore, CreateMakeReservationViewModel);
         }
     }
 
