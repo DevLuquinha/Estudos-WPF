@@ -1,8 +1,10 @@
-﻿using Learning_WPF.Exceptions;
+﻿using Learning_WPF.DbContexts;
+using Learning_WPF.Exceptions;
 using Learning_WPF.Models;
 using Learning_WPF.Services;
 using Learning_WPF.Stores;
 using Learning_WPF.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System.Windows;
 
 namespace Learning_WPF
@@ -12,6 +14,8 @@ namespace Learning_WPF
     /// </summary>
     public partial class App : Application
     {
+        private const string CONNECTION_STRING = "Data Source=reservoom.db";
+
         private readonly Hotel _hotel;
         private readonly NavigationStore _navigationStore;
         public App()
@@ -22,6 +26,11 @@ namespace Learning_WPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(CONNECTION_STRING).Options;
+            ReservoomDbContext dbContext = new ReservoomDbContext(options);
+
+            dbContext.Database.Migrate();
+
             _navigationStore.CurrentViewModel = CreateReservationViewModel();
 
             MainWindow = new MainWindow()

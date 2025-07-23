@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace Learning_WPF.DbContexts
 {
-    public class ReservroomDbContext : DbContext
+    public class ReservoomDbContext : DbContext
     {
+        public ReservoomDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<ReservationDTO> Reservations { get; set; }
     }
 }
