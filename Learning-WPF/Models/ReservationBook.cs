@@ -11,11 +11,6 @@ namespace Learning_WPF.Models
             _reservations = new List<Reservation>();
         }
 
-        //public IEnumerable<Reservation> GetReservationsForUser(string username)
-        //{
-        //    return _reservations.Where(name => name.UserName == username);
-        //} 
-
         public IEnumerable<Reservation> GetAllReservations()
         {
             return _reservations;
