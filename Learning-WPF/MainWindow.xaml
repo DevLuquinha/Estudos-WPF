@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Learning_WPF" 
         xmlns:views="clr-namespace:Learning_WPF.Views"
+        xmlns:vms="clr-namespace:Learning_WPF.ViewModels"
         mc:Ignorable="d"  
         Title="Reservoom" 
         Height="450" 
@@ -13,7 +14,16 @@
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="20,10" MaxWidth="600">
-        <views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:MakeReservationViewModel}">
+                <views:MakeReservationView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
+                <views:ReservationListingView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>
 
