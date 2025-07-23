@@ -1,4 +1,5 @@
-﻿using Learning_WPF.Models;
+﻿using Learning_WPF.DTOs;
+using Learning_WPF.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace Learning_WPF.DbContexts
 {
     public class ReservroomDbContext : DbContext
     {
-        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<ReservationDTO> Reservations { get; set; }
     }
 }
