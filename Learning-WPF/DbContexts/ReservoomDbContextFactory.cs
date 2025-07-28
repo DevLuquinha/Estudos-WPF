@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Learning_WPF.DbContexts
 {
-    internal class ReservoomDbContextFactory
+    public class ReservoomDbContextFactory
     {
         private readonly string _connectionString;
 
