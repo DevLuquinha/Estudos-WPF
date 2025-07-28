@@ -25,6 +25,8 @@ namespace Learning_WPF.Services.ReservationProviders
             {
                 IEnumerable<ReservationDTO> reservationsDTOs = await context.Reservations.ToListAsync();
 
+                await Task.Delay(2000);
+
                 return reservationsDTOs.Select(r => ToReservation(r));
             }
         }

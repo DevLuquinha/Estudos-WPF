@@ -14,6 +14,19 @@ namespace Learning_WPF.ViewModels
 
         public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
+        private bool _isLoading;
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set 
+            { 
+                _isLoading = value; 
+                OnPropertyChanged(nameof(IsLoading));
+            }
+        }
+
+
         public ICommand LoadReservationsCommand { get; }
         public ICommand MakeReservationCommand { get; }
 
