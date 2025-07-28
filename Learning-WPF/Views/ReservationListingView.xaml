@@ -42,7 +42,7 @@
                 Diameter="100"
                 Thickness="5" 
                 IsLoading="{Binding IsLoading}"
-                Color="Gray" />
+                Color="Black" />
 
             <Grid Visibility="{Binding IsLoading, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
 
