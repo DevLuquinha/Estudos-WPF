@@ -50,7 +50,7 @@ namespace Learning_WPF.Commands
 
                 MessageBox.Show("Reservation made successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                _reservationViewNavigationService.Navigate();
+                //_reservationViewNavigationService.Navigate();
             }
             catch (ReservationConflictException)
             {

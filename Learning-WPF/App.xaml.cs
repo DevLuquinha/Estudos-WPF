@@ -63,7 +63,7 @@ namespace Learning_WPF
 
         private ReservationListingViewModel CreateReservationViewModel()
         {
-            return ReservationListingViewModel.LoadViewModel(_hotelStore, new NavigationService(_navigationStore, CreateMakeReservationViewModel));
+            return ReservationListingViewModel.LoadViewModel(_hotelStore, CreateMakeReservationViewModel(),new NavigationService(_navigationStore, CreateMakeReservationViewModel));
         }
     }
 
