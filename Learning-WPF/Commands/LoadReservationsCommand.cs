@@ -28,9 +28,9 @@ namespace Learning_WPF.Commands
 
             try
             {
-                throw new Exception();
-
                 await _hotelStore.Load();
+
+                throw new Exception();
 
                 _viewModel.UpdateReservations(_hotelStore.Reservations);
             }

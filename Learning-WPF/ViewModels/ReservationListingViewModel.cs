@@ -41,7 +41,6 @@ namespace Learning_WPF.ViewModels
             }
         }
 
-
         public ICommand LoadReservationsCommand { get; }
         public ICommand MakeReservationCommand { get; }
 
