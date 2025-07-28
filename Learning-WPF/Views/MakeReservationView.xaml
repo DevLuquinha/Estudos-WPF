@@ -18,11 +18,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock 
-            Text="Make Reservation"
-            Style="{StaticResource Header}"/>
+            Style="{StaticResource Header}"
+            Text="Make Reservation"/>
 
         <!-- Input Name -->
-        <Grid Grid.Row="1" Margin="0,50,0,0">
+        <Grid Grid.Row="1" Margin="0,25,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
