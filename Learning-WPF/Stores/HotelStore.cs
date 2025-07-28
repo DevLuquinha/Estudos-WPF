@@ -28,6 +28,13 @@ namespace Learning_WPF.Stores
             await _initializeLazy.Value;
         }
 
+        public async Task MakeReservation(Reservation reservation)
+        {
+            await _hotel.MakeReservation(reservation);
+
+            _reservations.Add(reservation);
+        }
+
         private async Task Initialize()
         {
             IEnumerable<Reservation> reservations = await _hotel.GetAllReservations();

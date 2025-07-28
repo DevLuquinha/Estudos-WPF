@@ -1,6 +1,7 @@
 ﻿using Learning_WPF.Exceptions;
 using Learning_WPF.Models;
 using Learning_WPF.Services;
+using Learning_WPF.Stores;
 using Learning_WPF.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,15 @@ namespace Learning_WPF.Commands
     public class MakeReservationCommand : AsyncCommandBase
     {
         private readonly MakeReservationViewModel _makeReservationViewModel;
-        private readonly Hotel _hotel;
+        private readonly HotelStore _hotelStore;
         private readonly NavigationService _reservationViewNavigationService;
 
         public MakeReservationCommand(MakeReservationViewModel makeReservationViewModel, 
-            Hotel hotel,
+            HotelStore hotelStore,
             NavigationService reservationViewNavigationService)
         {
             _makeReservationViewModel = makeReservationViewModel;
-            _hotel = hotel;
+            _hotelStore = hotelStore;
             _reservationViewNavigationService = reservationViewNavigationService;
             _makeReservationViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
@@ -45,7 +46,7 @@ namespace Learning_WPF.Commands
 
             try
             {
-                await _hotel.MakeReservation(reservation);
+                await _hotelStore.MakeReservation(reservation);
 
                 MessageBox.Show("Reservation made successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
