@@ -12,7 +12,7 @@ namespace Learning_WPF.Stores
         private readonly Hotel _hotel;
         private readonly List<Reservation> _reservations;
         
-        IEnumerable<Reservation> Reservations => _reservations;
+        public IEnumerable<Reservation> Reservations => _reservations;
 
         public HotelStore(Hotel hotel)
         {

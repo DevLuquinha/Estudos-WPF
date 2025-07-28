@@ -20,6 +20,7 @@ namespace Learning_WPF
         private const string CONNECTION_STRING = "Data Source=reservoom.db";
 
         private readonly Hotel _hotel;
+        private readonly HotelStore _hotelStore;
         private readonly NavigationStore _navigationStore;
         private readonly ReservoomDbContextFactory _reservoomDbContextFactory;
 
@@ -33,6 +34,7 @@ namespace Learning_WPF
             ReservationBook reservationBook = new ReservationBook(reservationProvider, reservationCreator, reservationConflictValidator);
             
             _hotel = new Hotel("SingletonSean Suites", reservationBook);
+            _hotelStore = new HotelStore(_hotel);
             _navigationStore = new NavigationStore();
         }
 
@@ -61,7 +63,7 @@ namespace Learning_WPF
 
         private ReservationListingViewModel CreateReservationViewModel()
         {
-            return ReservationListingViewModel.LoadViewModel(_hotel, new NavigationService(_navigationStore, CreateMakeReservationViewModel));
+            return ReservationListingViewModel.LoadViewModel(_hotelStore, new NavigationService(_navigationStore, CreateMakeReservationViewModel));
         }
     }
 
