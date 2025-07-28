@@ -10,11 +10,11 @@ namespace Learning_WPF.ViewModels
     public class ReservationListingViewModel : ViewModelBase
     {
         private readonly ObservableCollection<ReservationViewModel> _reservations;
+        private readonly HotelStore _hotelStore;
 
         public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
         public MakeReservationViewModel MakeReservationViewModel { get; }
-
 
         public ICommand LoadReservationsCommand { get; }
         public ICommand MakeReservationCommand { get; }
@@ -24,11 +24,25 @@ namespace Learning_WPF.ViewModels
             MakeReservationViewModel makeReservationViewModel,
             NavigationService makeReservationNavigationService)
         {
+            _hotelStore = hotelStore;
             _reservations = new ObservableCollection<ReservationViewModel>();
             MakeReservationViewModel = makeReservationViewModel;
 
             LoadReservationsCommand = new LoadReservationsCommand(this, hotelStore);
             MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
+
+            _hotelStore.ReservationMade += OnRervationMode;
+        }
+
+        public override void Dispose()
+        {
+            _hotelStore.ReservationMade -= OnRervationMode;
+        }
+
+        private void OnRervationMode(Reservation reservation)
+        {
+            ReservationViewModel reservationViewModel = new ReservationViewModel(reservation);
+            _reservations.Add(reservationViewModel);
         }
 
         public static ReservationListingViewModel LoadViewModel(
