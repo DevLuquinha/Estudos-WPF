@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComboBox_Study"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Cadastro de Clientes" 
+        Height="450" 
+        Width="800"
+        x:Name="clientWindow">
+    
     <Grid>
-        
         <!-- Name -->
         <Label
             HorizontalAlignment="Left"
@@ -21,6 +24,8 @@
             Margin="28,149,0,0"
             VerticalAlignment="Top"
             Width="120"
+            ItemsSource="{Binding ElementName=clientWindow, Path=Clients}"
+            DisplayMemberPath="Name"
             Text=""/>
 
         <!-- LastName -->
@@ -46,14 +51,13 @@
             VerticalAlignment="Top"
             Content="Telefone"/>
 
-                <TextBox
-            x:Name="phoneTextBox"
-            HorizontalAlignment="Left"
-            Height="23"
-            Margin="374,149,0,0"
-            VerticalAlignment="Top"
-            Width="120"
-            Text=""/>
-
+        <TextBox
+        x:Name="phoneTextBox"
+        HorizontalAlignment="Left"
+        Height="23"
+        Margin="374,149,0,0"
+        VerticalAlignment="Top"
+        Width="120"
+        Text=""/>
     </Grid>
 </Window>
