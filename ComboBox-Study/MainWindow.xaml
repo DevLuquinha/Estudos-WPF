@@ -7,6 +7,53 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        
+        <!-- Name -->
+        <Label
+            HorizontalAlignment="Left"
+            Margin="28,120,0,0"
+            VerticalAlignment="Top"
+            Content="Nome"/>
+
+        <ComboBox 
+            x:Name="nameComboBox"
+            HorizontalAlignment="Left"
+            Margin="28,149,0,0"
+            VerticalAlignment="Top"
+            Width="120"
+            Text=""/>
+
+        <!-- LastName -->
+        <Label
+            HorizontalAlignment="Left"
+            Margin="201,120,0,0"
+            VerticalAlignment="Top"
+            Content="Sobrenome"/>
+        
+        <TextBox
+            x:Name="lastNameTextBox"
+            HorizontalAlignment="Left"
+            Height="23"
+            Margin="201,149,0,0"
+            VerticalAlignment="Top"
+            Width="120"
+            Text=""/>
+
+        <!-- Phone -->
+        <Label
+            HorizontalAlignment="Left"
+            Margin="374,120,0,0"
+            VerticalAlignment="Top"
+            Content="Telefone"/>
+
+                <TextBox
+            x:Name="phoneTextBox"
+            HorizontalAlignment="Left"
+            Height="23"
+            Margin="374,149,0,0"
+            VerticalAlignment="Top"
+            Width="120"
+            Text=""/>
 
     </Grid>
 </Window>
