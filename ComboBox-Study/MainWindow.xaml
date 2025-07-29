@@ -42,7 +42,7 @@
             Margin="201,149,0,0"
             VerticalAlignment="Top"
             Width="120"
-            Text=""/>
+            Text="{Binding ElementName=nameComboBox, Path=SelectedValue.LastName}"/>
 
         <!-- Phone -->
         <Label
@@ -58,6 +58,6 @@
         Margin="374,149,0,0"
         VerticalAlignment="Top"
         Width="120"
-        Text=""/>
+        Text="{Binding ElementName=nameComboBox, Path=SelectedValue.Phone}"/>
     </Grid>
 </Window>
