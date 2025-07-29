@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace ComboBox_Study;
+namespace LoginForm_WPF;
 
 /// <summary>
 /// Interaction logic for App.xaml
